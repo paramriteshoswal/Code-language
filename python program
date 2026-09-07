@@ -1,0 +1,31 @@
+str= input("Enter message").strip(" ")
+sen=str.split(" ")
+l=len(sen)
+do=input("Enter \"c\" covert to code \"d\" decode")
+import random
+if do[0].lower() =="c":
+  for i in range(l):
+    ch= sen[i]
+    if (len(ch)>2):
+      out=chr(97+random.randint(0,25))+chr(97+random.randint(0,25))+chr(97+random.randint(0,25))     +ch[1:]+ch[0]+chr(97+random.randint(0,25))+chr(97+random.randint(0,25))+chr(97+random.randint(0,25))
+      sen[i]= out
+    else:
+      ch = ch[::-1]
+      sen[i]=ch
+      for v in range(l):
+        print(sen[v],end=" ")
+
+elif do[0].lower()=="d":
+    for i in range(l):
+      ch= sen[i]
+      if (len(ch)>2):
+        out=ch[-4]+ch[3:-4]
+        sen[i]= out
+      else:
+        ch = ch[::-1]
+        sen[i]=ch
+        for v in range(l):
+          print(sen[v],end=" ")
+
+else:
+  print("wrong input")
